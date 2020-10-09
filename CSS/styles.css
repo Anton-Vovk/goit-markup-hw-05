@@ -4,6 +4,7 @@
   --accent-color: #2196f3;
   --main-color: #212121;
   --discription-color: #757575;
+  --main-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 *,
@@ -172,6 +173,55 @@ img {
   padding: 11px 32px;
 }
 
+/* -----start modal form------  */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 250ms var(--main-timing-function);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 250ms var(--main-timing-function) 500ms;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
+  transition: all 250ms var(--main-timing-function);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 528px;
+  height: 581px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  background-color: #fff;
+  transition: all 250ms var(--main-timing-function) 500ms;
+  border-radius: 4px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+}
+/* -----end modal form------  */
 /*  ============ ADVANTAGE  ============ */
 .advantage {
   padding-top: 94px;
