@@ -124,6 +124,13 @@
                 width="370"
                 height="294"
               />
+              <div class="about-text-overlay">
+                <p class="about-text">
+                  Десктопные приложения
+                </p>
+              </div>
+
+
             </li>
             <li class="about-list-item">
               <img
@@ -133,6 +140,11 @@
                 width="370"
                 height="294"
               />
+              <div class="about-text-overlay">
+                <p class="about-text">
+                  Мобильные приложения
+                </p>
+              </div>
             </li>
             <li class="about-list-item">
               <img
@@ -142,6 +154,11 @@
                 width="370"
                 height="294"
               />
+              <div class="about-text-overlay">
+                <p class="about-text">
+                  Дизайнерские решения
+                </p>
+              </div>
             </li>
           </ul>
         </div>
@@ -439,8 +456,14 @@
       </div>
     </footer>
     <div class="backdrop is-hidden" data-modal>
-      <div class="modal">
-        <button type="button" class="close-btn" data-modal-close>X</button>
+      <div class="modal-wrapper">
+        <div class="modal">
+          <button type="button" class="close-btn" data-modal-close> 
+            <svg width="18px" height="18px">
+              <use href="./images/sprite-modal.svg#icon-btn-close"></use>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
     <script src="./js/modal.js"></script>

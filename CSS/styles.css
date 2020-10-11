@@ -3,6 +3,7 @@
   --secondary-font: 'Raleway', sans-serif;
   --accent-color: #2196f3;
   --main-color: #212121;
+  --secondary-color: #ffffff;
   --discription-color: #757575;
   --main-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -175,7 +176,7 @@ img {
   text-align: center;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--secondary-color);
   margin-bottom: 30px;
 }
 
@@ -186,7 +187,7 @@ img {
   line-height: 1.875;
   text-align: center;
   letter-spacing: 0.06em;
-  color: #ffffff;
+  color: var(--secondary-color);
   background: var(--accent-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
@@ -194,39 +195,46 @@ img {
   padding: 11px 32px;
 }
 
-/* --------start modal form-----------  */
+/* --------START MODAL FORM-----------  */
 .backdrop {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   width: 100%;
   height: 100%;
+  overflow-y: auto;
   background-color: rgba(0, 0, 0, 0.5);
-  transition: all 250ms var(--main-timing-function);
 }
 
 .backdrop.is-hidden {
-  opacity: 0;
-  visibility: hidden;
   pointer-events: none;
-  transition: all 250ms var(--main-timing-function) 500ms;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 250ms var(--main-timing-function),
+    visibility 0ms linear 250ms;
 }
 
 .backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0);
-  transition: all 250ms var(--main-timing-function);
+  transform: scale(0.3) perspective(400px) rotateX(25deg);
+  transition: transform 250ms var(--main-timing-function);
+}
+
+.modal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  padding: 15px;
 }
 
 .modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
   width: 528px;
   height: 581px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  background-color: #fff;
-  transition: all 250ms var(--main-timing-function) 500ms;
+  transform: scale(1) perspective(400px) rotateX(0deg);
+  transition: transform 250ms var(--main-timing-function);
+  background-color: var(--secondary-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
 
@@ -236,12 +244,22 @@ img {
   right: 8px;
   width: 30px;
   height: 30px;
-  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   cursor: pointer;
+  fill: #000000;
+  transition: fill 250ms var(--main-timing-function);
 }
-/* -------------end modal form----------  */
+
+.close-btn:hover {
+  fill: var(--accent-color);
+}
+
+/* -------------END MODAL FORM----------  */
 
 /*  ============ ADVANTAGE  ============ */
 .advantage {
@@ -264,16 +282,16 @@ img {
 }
 
 .advantage-list-item:nth-child(1)::before {
-  background-image: url(../images/advantage/antena.png);
+  background-image: url(../images/advantage/antenna.svg);
 }
 .advantage-list-item:nth-child(2)::before {
-  background-image: url(../images/advantage/clock.png);
+  background-image: url(../images/advantage/clock.svg);
 }
 .advantage-list-item:nth-child(3)::before {
-  background-image: url(../images/advantage/pc.png);
+  background-image: url(../images/advantage/pc.svg);
 }
 .advantage-list-item:nth-child(4)::before {
-  background-image: url(../images/advantage/astronaut.png);
+  background-image: url(../images/advantage/astronaut.svg);
 }
 
 .advantage-list li {
@@ -327,6 +345,31 @@ img {
   margin-right: 30px;
 }
 
+.about-list-item {
+  position: relative;
+}
+
+.about-text-overlay {
+  position: absolute;
+  bottom: 0px;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
+.about-text {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.142;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+}
+
 /*  ============ END ABOUTE  ============ */
 
 /*  ============ TEAM  ============ */
@@ -340,7 +383,7 @@ img {
   display: flex;
 }
 .team-list-item {
-  background: #ffffff;
+  background: var(--secondary-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
@@ -483,7 +526,7 @@ img {
   font-size: 26px;
   line-height: 1.192;
   letter-spacing: 0.03em;
-  color: #ffffff;
+  color: var(--secondary-color);
   display: inline-block;
   margin-bottom: 20px;
 }
@@ -496,7 +539,7 @@ img {
   font-size: 14px;
   line-height: 1.714;
   letter-spacing: 0.03em;
-  color: #ffffff;
+  color: var(--secondary-color);
 }
 
 .adreess-link-mail-foot,
@@ -520,7 +563,7 @@ img {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   margin-bottom: 20px;
-  color: #ffffff;
+  color: var(--secondary-color);
 }
 
 .footer-social-side {
@@ -540,7 +583,7 @@ img {
 }
 
 .footer-social-side .social-list-svg {
-  fill: #ffffff;
+  fill: var(--secondary-color);
 }
 
 .footer-social-side .social-list-link:hover {
@@ -590,7 +633,7 @@ img {
   background: var(--accent-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-  color: #ffffff;
+  color: var(--secondary-color);
   cursor: pointer;
 }
 
@@ -641,6 +684,45 @@ img {
   border-bottom: 1px solid #eeeeee;
   border-left: 1px solid #eeeeee;
   border-right: 1px solid #eeeeee;
+}
+
+.portfolio-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(33, 150, 243, 0.9);
+  transform: translateY(100%);
+  transition: all 250ms var(--main-timing-function);
+
+  /* свойства  
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; */
+}
+
+.portfolio-description {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.556;
+  letter-spacing: 0.03em;
+  color: var(--secondary-color);
+  padding: 63px 24px;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  transform: translateY(0%);
+
+  /* свойства  
+  opacity: 1;
+  visibility: :visited
+  pointer-events: auto;  */
 }
 
 /*  ============ END PORTFOLIO  ============ */
