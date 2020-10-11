@@ -55,6 +55,8 @@ img {
   letter-spacing: 0.03em;
   color: #000000;
   margin-right: 94px;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
 }
 
 .first-word-logo {
